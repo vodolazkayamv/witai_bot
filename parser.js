@@ -6,22 +6,16 @@ var flatten = require('flat')
 const fs = require("fs");
 var jsonfile = require('jsonfile')
 
-var Redis = require('ioredis');
-var JSONStore = require('redis-json');
-
-var redis = new Redis();
-
-var jsonStore = new JSONStore(redis);
 
 
 var START_URL = "https://www.afisha.ru/msk/schedule_cinema/";
 var moviesTodayFile = 'moviesToday.json'
 
-exports.findMovieToday = function(movieTitle) {
-
+exports.findMoviesToday = function() {
+  visitPage(START_URL);
 }
 
-visitPage(START_URL);
+
   function visitPage(url) {
     console.log("VISITING PAGE: " + START_URL);
 
